@@ -1,3 +1,4 @@
+# import datetime module
 from datetime import datetime
 
 data = {
@@ -638,12 +639,14 @@ def get_most_recent(the_data):
     the job done.
     """
 
+    # Convert default date to datetime object
     date = datetime.strptime('01-Jan-1970 00:00', '%d-%b-%Y %H:%M')
     value = None
 
     for k, v in the_data.items():
+      # also convert the date from the_data
         hash_date = datetime.strptime(v, '%d-%b-%Y %H:%M')
-        # print(hash_date)
+        # compare both hash_date and default date
         if hash_date > date:
             date = hash_date
             value = k
